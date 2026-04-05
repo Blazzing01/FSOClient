@@ -32,17 +32,23 @@ namespace FSOClient.Scenes
                 Game.GraphicsDevice.Viewport.Width / 2f - 150,
                 Game.GraphicsDevice.Viewport.Height / 2f - 100),
                 ImGuiCond.Always);
-            ImGui.SetNextWindowSize(new System.Numerics.Vector2(300, 200), ImGuiCond.Always);
+            ImGui.SetNextWindowSize(new System.Numerics.Vector2(300, 300), ImGuiCond.Always);
 
-            ImGui.Begin("Main Menu", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize);
+            ImGui.Begin("Main Menu", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoBackground | ImGuiWindowFlags.NoTitleBar);
 
-            ImGui.Text("Welcome to FSO Client");
-            ImGui.Spacing();
-            ImGui.Spacing();
-
-            if (ImGui.Button("Start Game", new System.Numerics.Vector2(-1, 40)))
+            if (ImGui.Button("Login", new System.Numerics.Vector2(-1, 40)))
             {
                 // TODO: Transition to game screen
+            }
+
+            if (ImGui.Button("Create Account", new System.Numerics.Vector2(-1, 40)))
+            {
+                // TODO: Transition to game screen
+            }
+
+            if (ImGui.Button("Community", new System.Numerics.Vector2(-1, 40)))
+            {
+                // TODO: Transition to settings screen
             }
 
             if (ImGui.Button("Settings", new System.Numerics.Vector2(-1, 40)))

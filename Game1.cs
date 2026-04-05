@@ -44,6 +44,14 @@ namespace FSOClient
             GuiRenderer.RebuildFontAtlas();
             var io = ImGui.GetIO();
             io.WantSaveIniSettings = false;
+
+            // Disable anti-aliased lines
+            var style = ImGui.GetStyle();
+            style.AntiAliasedLines = false;
+            style.WindowRounding = 12f;
+            style.FrameRounding = 6f;
+            style.FrameBorderSize = 1f;
+
             _screenManager.ShowScreen(new Loadingscene(this));
 
         }
@@ -64,7 +72,7 @@ namespace FSOClient
                 string segoeUiPath = Path.Combine(fontsPath, "segoeui.ttf");
                 if (File.Exists(segoeUiPath))
                 {
-                    io.Fonts.AddFontFromFileTTF(segoeUiPath, 18);
+                    io.Fonts.AddFontFromFileTTF(segoeUiPath, 24);
                 }
                 else
                 {
@@ -72,7 +80,7 @@ namespace FSOClient
                     string verdanaPath = Path.Combine(fontsPath, "verdana.ttf");
                     if (File.Exists(verdanaPath))
                     {
-                        io.Fonts.AddFontFromFileTTF(verdanaPath, 18);
+                        io.Fonts.AddFontFromFileTTF(verdanaPath, 24);
                     }
                     else
                     {
@@ -80,7 +88,7 @@ namespace FSOClient
                         string arialPath = Path.Combine(fontsPath, "arial.ttf");
                         if (File.Exists(arialPath))
                         {
-                            io.Fonts.AddFontFromFileTTF(arialPath, 18);
+                            io.Fonts.AddFontFromFileTTF(arialPath, 24);
                         }
                     }
                 }
