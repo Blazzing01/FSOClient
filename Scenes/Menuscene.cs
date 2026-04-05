@@ -1,6 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ImGuiNET;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ImGuiNET;
+using MonoGame.Extended.Screens;
 
 namespace FSOClient.Scenes
 {
@@ -39,21 +40,25 @@ namespace FSOClient.Scenes
             if (ImGui.Button("Login", new System.Numerics.Vector2(-1, 40)))
             {
                 // TODO: Transition to game screen
+                Game1.ScreenManager.ShowScreen(new LoginScene(Game1));
             }
 
             if (ImGui.Button("Create Account", new System.Numerics.Vector2(-1, 40)))
             {
                 // TODO: Transition to game screen
+                Game1.ScreenManager.ShowScreen(new NewAccountScene(Game1));
             }
 
             if (ImGui.Button("Community", new System.Numerics.Vector2(-1, 40)))
             {
                 // TODO: Transition to settings screen
+                Game1.ScreenManager.ShowScreen(new CommunityScene(Game1));
             }
 
             if (ImGui.Button("Settings", new System.Numerics.Vector2(-1, 40)))
             {
                 // TODO: Transition to settings screen
+                Game1.ScreenManager.ShowScreen(new SettingScene(Game1));
             }
 
             if (ImGui.Button("Exit", new System.Numerics.Vector2(-1, 40)))
