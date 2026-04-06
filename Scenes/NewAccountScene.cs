@@ -35,41 +35,61 @@ namespace FSOClient.Scenes
         {
             ImGui.SetNextWindowPos(new System.Numerics.Vector2(
                 Game.GraphicsDevice.Viewport.Width / 2f - 150,
-                Game.GraphicsDevice.Viewport.Height / 2f - 150),
+                Game.GraphicsDevice.Viewport.Height / 2f - 210),
                 ImGuiCond.Always);
-            ImGui.SetNextWindowSize(new System.Numerics.Vector2(300, 320), ImGuiCond.Always);
+            ImGui.SetNextWindowSize(new System.Numerics.Vector2(300, 350), ImGuiCond.Always);
 
             ImGui.Begin("Create Account", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar);
 
             ImGui.Text("Create New Account");
             ImGui.Spacing();
 
-            ImGui.Text("Username");
-            ImGui.InputText("##username", ref _username, 32);
+            float windowWidth = ImGui.GetWindowWidth();
+            float itemWidth = 250f;
+            float offset = (windowWidth - itemWidth - 16) / 2f;
 
-            ImGui.Spacing();
-
+            // Email Label
+            var emailTextSize = ImGui.CalcTextSize("Email");
+            ImGui.SetCursorPosX(offset + (itemWidth - emailTextSize.X) / 2f);
             ImGui.Text("Email");
+            ImGui.SetCursorPosX(offset);
+            ImGui.SetNextItemWidth(itemWidth);
             ImGui.InputText("##email", ref _email, 64);
 
             ImGui.Spacing();
 
+            // Password Label
+            var passwordTextSize = ImGui.CalcTextSize("Password");
+            ImGui.SetCursorPosX(offset + (itemWidth - passwordTextSize.X) / 2f);
             ImGui.Text("Password");
+            ImGui.SetCursorPosX(offset);
+            ImGui.SetNextItemWidth(itemWidth);
             ImGui.InputText("##password", ref _password, 32, ImGuiInputTextFlags.Password);
 
             ImGui.Spacing();
 
+            // Confirm Password Label
+            var confirmPasswordTextSize = ImGui.CalcTextSize("Confirm Password");
+            ImGui.SetCursorPosX(offset + (itemWidth - confirmPasswordTextSize.X) / 2f);
             ImGui.Text("Confirm Password");
+            ImGui.SetCursorPosX(offset);
+            ImGui.SetNextItemWidth(itemWidth);
             ImGui.InputText("##confirmPassword", ref _confirmPassword, 32, ImGuiInputTextFlags.Password);
 
             ImGui.Spacing();
+            ImGui.Spacing();
+            ImGui.Spacing();
 
-            if (ImGui.Button("Create Account", new System.Numerics.Vector2(-1, 40)))
+            ImGui.SetCursorPosX(offset);
+            ImGui.SetNextItemWidth(itemWidth);
+            if (ImGui.Button("Create Account", new System.Numerics.Vector2(itemWidth, 40)))
             {
                 // TODO: Implement account creation logic
             }
 
-            if (ImGui.Button("Back", new System.Numerics.Vector2(-1, 40)))
+            ImGui.SetCursorPosX(offset);
+            ImGui.SetNextItemWidth(itemWidth);
+            if (ImGui.Button("Back", new System.Numerics.Vector2(itemWidth, 40)))
             {
                 Game1.ScreenManager.ShowScreen(new Menuscene(Game));
             }

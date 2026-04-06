@@ -34,8 +34,8 @@ namespace FSOClient.Scenes
         protected override void RenderImGui(GameTime gameTime)
         {
             ImGui.SetNextWindowPos(new System.Numerics.Vector2(
-                Game.GraphicsDevice.Viewport.Width / 2f - 150,
-                Game.GraphicsDevice.Viewport.Height / 2f - 120),
+                Game.GraphicsDevice.Viewport.Width / 2f - 430 / 2f,
+                Game.GraphicsDevice.Viewport.Height / 2f - 380 / 2f),
                 ImGuiCond.Always);
             ImGui.SetNextWindowSize(new System.Numerics.Vector2(430, 380), ImGuiCond.Always);
 
